@@ -1,28 +1,28 @@
 def ip():
     arr = []
-    a = int(input("enter how many numbers:"))
-    while len(arr) <a:
-        n = input("Enter values: ")
-        arr.append(n)
+    n = int(input("enter how many numbers:"))
+    while n>0:
+        arr.append(int(input("Enter value: ")))
+        n=n-1
     print(arr)
-    mergesort(arr)
+    divide(arr)
     print("Sorted array is: ")
     printlist(arr)
     
     
     
-def mergesort(arr):
+def divide(arr):
     if len(arr) >1:
         mid = len(arr) //2
         L = arr[:mid]
         R =arr[mid:]
         
-        mergesort(L)
-        mergesort(R)
-        merge(arr,L,R)
-    
-def merge(arr,L,R):
-    i =j= k= 0
+        divide(L)
+        divide(R)
+        merge_sort(arr,L,R)
+
+def merge_sort(arr,L,R):
+    i =j= k= 0 
     while i<len(L) and j< len(R):
         if L[i]< R[j]:
             arr[k] = L[i]
@@ -31,6 +31,7 @@ def merge(arr,L,R):
             arr[k] = R[j]
             j+=1
         k+=1
+        
     while i<len(L):
         arr[k] =L[i]
         i+=1
@@ -40,13 +41,9 @@ def merge(arr,L,R):
         j+=1
         k+=1     
 
+   
     
 def printlist(arr):
     for i in range(len(arr)):
         print(arr[i], end =' ')
     print()
-
-
-
-
-            
