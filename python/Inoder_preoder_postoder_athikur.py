@@ -31,16 +31,15 @@ def printpreorder(root):
 def printpostorder(root):
     if root:
         #first recure on left child
-        printpreorder(root.left)
+        printpostorder(root.left)
         
         #now recure on right child
-        printpreorder(root.right)
+        printpostorder(root.right)
         
         #then print the data of node
         print(root.val)
 
 # driver code
-#if __name__ == "__main__":
 root = Node(1)
 root.left = Node(2)
 root.right =Node(3)
@@ -54,8 +53,3 @@ print('\nPreorder traversal of binary tree is : ')
 printpreorder(root)
 print('\nPostorder traversal of binary tree is : ')
 printpostorder(root)
-
-
-
-
-    
